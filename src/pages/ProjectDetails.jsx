@@ -39,18 +39,15 @@ export default function ProjectDetails({ projects, setProjects }) {
   }
 
   const handleDelete = async () => {
-    const res = await fetch(
-      `${import.meta.env.VITE_API_BASE_URL}/api/projects/${params.id}`,
-      {
-        method: "DELETE",
-      }
-    );
+    const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/projects/${params.id}`, {
+      method: "DELETE",
+    });
 
     console.log(res);
 
     if (res.ok) {
       setProjects((prevProject) =>
-        prevProject.filter((p) => p._id !== params.id)
+        prevProject.filter((p) => p._id !== params.id),
       );
       navigate("/projects");
     }
