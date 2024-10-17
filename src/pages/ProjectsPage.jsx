@@ -18,6 +18,7 @@ export default function ProjectsPage({ projects, setProjects }) {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
+      console.log(formData);
       // make POST request to create new project
       const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/projects/`, {
         headers: {
